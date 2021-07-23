@@ -1,0 +1,50 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #70757a;
+}
+h1 {
+  margin-bottom: 0px;
+}
+img {
+  display: inline-block;
+  vertical-align: top;
+  height: 60px;
+  margin-top: unset;
+  width: 60px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  color: #70757a;
+  font-size: 12px;
+  line-height: 16px;
+  list-style: none;
+}
+.weather-app {
+  max-width: 700px;
+  height: 400px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 1px solid #dadce0;
+  border-radius: 20px;
+}
+.weather-degree {
+  margin: 0px;
+  color: #5585b5;
+  letter-spacing: -3.5px;
+  display: inline-block;
+  line-height: 60px;
+  vertical-align: top;
+  font-size: 48px;
+}
+.weather-C-F {
+  font-size: 16px;
+  vertical-align: top;
+  display: inline-block;
+  line-height: 24px;
+  padding-left: 6px;
+  margin-top: 6px;
+}
