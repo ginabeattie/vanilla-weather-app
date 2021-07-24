@@ -16,6 +16,8 @@ img {
 ul {
   padding: 0;
   margin: 0;
+  float: left;
+  line-height: 1;
 }
 li {
   color: #70757a;
@@ -29,15 +31,12 @@ li {
 }
 .weather-app {
   height: 400px;
-
-  padding: 40px;
+  padding: 60px;
   border: 1px solid #dadce0;
   border-radius: 20px;
 }
 .overview {
   margin-bottom: 20px;
-}
-.weather-temperature {
 }
 .weather-temperature img {
   width: 60px;
@@ -50,9 +49,27 @@ li {
   display: inline-block;
   line-height: 60px;
   font-size: 48px;
+  float: left;
 }
 .weather-temperature .weather-units {
   position: relative;
   font-size: 14px;
-  top: -24px;
+  top: 6px;
+  float: left;
+  margin-right: 10px;
+}
+.weather-temperature ul {
+  position: relative;
+  top: 8px;
+}
+.current {
+  text-align: right;
+}
+.current h1 {
+  color: #202124;
+  font-size: 22px;
+  line-height: 26px;
+}
+.current ul {
+  float: none;
 }
