@@ -73,3 +73,6 @@ li {
 .current ul {
   float: none;
 }
+.current ul #description {
+  text-transform: capitalize;
+}

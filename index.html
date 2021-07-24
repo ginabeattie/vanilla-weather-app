@@ -11,6 +11,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -21,23 +23,23 @@
             <div class="col-8 overview weather-temperature">
               <img src="img/cloudy.png" class="float-left" />
               <div class="float-left">
-                <strong>14&#176;</strong
+                <strong id="temperature"></strong
                 ><span class="weather-units"
                   >&#176;C | <a href="#">&#176;F</a></span
                 >
                 <ul>
-                  <li>Precipitation: 2%</li>
-                  <li>Humidity: 92%</li>
-                  <li>Wind: 6 km/h</li>
+                 
+                  <li>Humidity: <span id="humidity"></span>%</li>
+                  <li>Wind: <span id="wind"></span> km/h</li>
                 </ul>
               </div>
             </div>
             <div class="col-4 clearfix">
               <div class="current">
-              <h1>Sydney NSW</h1>
+              <h1 id="city"></h1>
               <ul>
                 <li>Thursday 9:00 PM</li>
-                <li>Stormy</li>
+                <li id="description"></li>
               </ul>
               </div>
             </div>
