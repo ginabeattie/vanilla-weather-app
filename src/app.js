@@ -19,7 +19,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[now.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
@@ -45,6 +45,6 @@ function displayTemperature(response) {
 }
 
 let apiKey = "1deda5c68ea04c2e5279c1a7fd7cb23f";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=${apiKey}&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Ireland&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
