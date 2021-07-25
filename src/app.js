@@ -51,8 +51,19 @@ function displayTemperature(response) {
   iconContainer.setAttribute("alt", `${description}`);
 }
 
-let apiKey = "1deda5c68ea04c2e5279c1a7fd7cb23f";
-let apiCity = "London";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${apiCity}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "1deda5c68ea04c2e5279c1a7fd7cb23f";
+  //let apiCity = "London";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchCity = document.querySelector("#search-city");
+  search(searchCity.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

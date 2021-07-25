@@ -46,7 +46,7 @@ li {
 
 .weather-temperature strong {
   color: #202124;
-  display: inline-block;
+
   line-height: 60px;
   font-size: 48px;
   float: left;
