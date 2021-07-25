@@ -58,6 +58,12 @@ li {
   float: left;
   margin-right: 10px;
 }
+.weather-temperature .weather-units .active {
+  color: #70757a;
+  text-decoration: none;
+  cursor: default;
+}
+
 .weather-temperature ul {
   position: relative;
   top: 8px;

@@ -38,6 +38,8 @@ function displayTemperature(response) {
   let dateContainer = document.querySelector("#date");
   let iconContainer = document.querySelector("#icon");
 
+  celciusTemperature = temperature;
+
   tempContainer.innerHTML = Math.round(temperature) + "&#176;";
   cityContainer.innerHTML = city;
   descriptionContainer.innerHTML = description;
@@ -53,7 +55,6 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = "1deda5c68ea04c2e5279c1a7fd7cb23f";
-  //let apiCity = "London";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayTemperature);
@@ -65,5 +66,37 @@ function handleSubmit(event) {
   search(searchCity.value);
 }
 
+function showFahrenheit(event) {
+  event.preventDefault();
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
+
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  //alert(fahrenheitTemp);
+  let tempContainer = document.querySelector("#temperature");
+  tempContainer.innerHTML = Math.round(fahrenheitTemp) + "&#176;";
+}
+
+function showCelcius(event) {
+  event.preventDefault();
+
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
+
+  let celciusTemp = celciusTemperature;
+  let tempContainer = document.querySelector("#temperature");
+  tempContainer.innerHTML = Math.round(celciusTemperature) + "&#176;";
+}
+
+let celciusTemperature = null;
+
+search("Sydney");
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheit);
+
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", showCelcius);
