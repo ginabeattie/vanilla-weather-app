@@ -28,6 +28,7 @@ function displayTemperature(response) {
   let description = response.data.weather[0].description;
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
+  let icon = response.data.weather[0].icon;
 
   let tempContainer = document.querySelector("#temperature");
   let cityContainer = document.querySelector("#city");
@@ -35,6 +36,7 @@ function displayTemperature(response) {
   let humidityContainer = document.querySelector("#humidity");
   let windContainer = document.querySelector("#wind");
   let dateContainer = document.querySelector("#date");
+  let iconContainer = document.querySelector("#icon");
 
   tempContainer.innerHTML = Math.round(temperature) + "&#176;";
   cityContainer.innerHTML = city;
@@ -42,9 +44,15 @@ function displayTemperature(response) {
   humidityContainer.innerHTML = humidity;
   windContainer.innerHTML = Math.round(wind);
   dateContainer.innerHTML = formatDate(response.data.dt * 1000);
+  iconContainer.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  iconContainer.setAttribute("alt", `${description}`);
 }
 
 let apiKey = "1deda5c68ea04c2e5279c1a7fd7cb23f";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Ireland&appid=${apiKey}&units=metric`;
+let apiCity = "London";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${apiCity}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
