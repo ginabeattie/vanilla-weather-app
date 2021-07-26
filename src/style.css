@@ -82,3 +82,20 @@ li {
 .current ul #description {
   text-transform: capitalize;
 }
+.weather-forcast {
+  text-align: center;
+  margin-top: 40px;
+  color: #48484a;
+  font-weight: 600;
+}
+
+.weather-forcast .weather-forcast-date {
+  font-size: 18px;
+}
+
+.weather-forcast .weather-forcast-temperature {
+  font-size: 16px;
+}
+.weather-forcast .temperature-low {
+  opacity: 0.2;
+}
