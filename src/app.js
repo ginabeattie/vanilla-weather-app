@@ -21,30 +21,44 @@ function formatDate(timestamp) {
   let day = days[now.getDay()];
   return `Last updated: ${day} ${hours}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
 
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  //day = days[date.getDay()];
+  return days[day];
+}
 function displayForcast(response) {
-  console.log(response.data.daily);
+  let forcastData = response.data.daily;
+  console.log(forcastData);
   let forcast = document.querySelector("#forcast");
 
   let forcastHTML = '<div class="row">';
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `<div class="col-2">
-       <div class="weather-forcast-date">${day}</div>
+  forcastData.forEach(function (forcastDaily, index) {
+    if (index < 6) {
+      forcastHTML =
+        forcastHTML +
+        `<div class="col-2">
+       <div class="weather-forcast-date">${formatDay(forcastDaily.dt)}</div>
        <img
-         src="http://openweathermap.org/img/wn/04n@2x.png"
+         src="http://openweathermap.org/img/wn/${
+           forcastDaily.weather[0].icon
+         }@2x.png"
          id="icon"
          alt="broken clouds"
        />
        <div class="weather-forcast-temperature">
-         <span class="temperature-high">19&#176;</span>
-         <span class="temperature-low">7&#176;</span>
+         <span class="temperature-high">${Math.round(
+           forcastDaily.temp.max
+         )}&#176;</span>
+         <span class="temperature-low">${Math.round(
+           forcastDaily.temp.min
+         )}&#176;</span>
        </div>
      </div>
     `;
+    }
   });
   forcastHTML = forcastHTML + `</div>`;
   forcast.innerHTML = forcastHTML;
